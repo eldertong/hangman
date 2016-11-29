@@ -5,9 +5,11 @@ class Hangman
         @word = word
     end
 
-    def input_secret_word(input_word)
-        game_word = input_word.split("")
+    def input_secret_word
+        split_word = @word.split("")
     end
+
+
         
 
 end
