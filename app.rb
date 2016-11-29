@@ -1,5 +1,7 @@
 class Hangman
-    attr_accessor :word
+    attr_accessor :word, :guessed_letters
+
+    @guessed_letters = []
 
     def initialize(word)
         @word = word.downcase!
@@ -15,13 +17,16 @@ class Hangman
     end
 
     def word_include?(letter_guess)
-        if @word.include? letter_guess
-            true
-        else
-            false
-        end
+        @word.include? letter_guess
+        #     true
+        # else
+        #     false
+        # end
     end
 
+    def guessed_letters_array(letter_guess)
+        @guessed_letters << letter_guess
+    end
         
 
 end
