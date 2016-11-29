@@ -30,12 +30,17 @@ class TestApp < Minitest::Test
         assert_equal(false, game_word.word_include?(letter_guess))
     end
 
-    # def test_r_is_pushed_into_guessed_letters_array
-    #     game_word = Hangman.new("House")
-    #     letter_guess = "r"
-    #     assert_equal(["r"], game_word.guessed_letters_array(letter_guess))
-    # end
+    def test_r_is_pushed_into_guessed_letters_array
+        game_word = Hangman.new("House")
+        letter_guess = "r"
+        assert_equal(["r"], game_word.guessed_letters_array(letter_guess))
+    end
 
+    def test_correct_guesses_are_pushed_into_solved_array
+        game_word = Hangman.new("House")
+        letter_guess = "o"
+        assert_equal(["o"], game_word.correct_guesses_array(letter_guess))
+    end
     
 
 end

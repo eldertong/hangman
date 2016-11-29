@@ -1,11 +1,10 @@
 class Hangman
-    attr_accessor :word, :guessed_letters
-
-    @guessed_letters = []
-    
-
+    attr_accessor :word, :guessed_letters, :correct_guesses
+  
     def initialize(word)
         @word = word.downcase!
+        @correct_guesses = []
+        @guessed_letters = []
     end
 
     def input_secret_word
@@ -25,9 +24,12 @@ class Hangman
         # end
     end
 
-    # def guessed_letters_array(letter_guess)
-    #     @guessed_letters << letter_guess
-    # end
-        
+    def guessed_letters_array(letter_guess)
+        @guessed_letters << letter_guess
+    end
+
+    def correct_guesses_array(letter_guess)
+        @correct_guesses << letter_guess
+    end
 
 end
