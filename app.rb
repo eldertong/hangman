@@ -1,8 +1,8 @@
 class Hangman
-    attr_accessor :empty_blanks_for_word
+    attr_accessor :word
 
-    def initialize(num_of_letters)
-        @empty_blanks_for_word = Array.new(num_of_letters.to_i, " ")
+    def initialize(word)
+        @word = word
     end
 
     def input_secret_word(input_word)
