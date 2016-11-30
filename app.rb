@@ -5,6 +5,7 @@ class Hangman
         @word = word.downcase!
         @correct_guesses = []
         @guessed_letters = []
+        @blank_word = []
     end
 
     def input_secret_word
@@ -13,7 +14,7 @@ class Hangman
 
     def secret_word_displayed
         number_of_blanks = @word.length
-        blank_word = Array.new(number_of_blanks, "")
+        @blank_word = Array.new(number_of_blanks, "")
     end
 
     def word_include?(letter_guess)
@@ -29,6 +30,6 @@ class Hangman
     end
 
     def blank_word_gets_filled_with_correct_guess(letter_guess)
-        blank_word = blank_word[1].replace(letter_guess)
+        @blank_word = @blank_word.insert(1, letter_guess)
     end
 end
