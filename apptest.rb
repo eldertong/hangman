@@ -74,9 +74,9 @@ class TestApp < Minitest::Test
 
     def test_game_over_if_guessed_letters_is_greater_than_5_more_than_correct_letters
         game_word = Hangman.new("House")
-        correct_guesses = ["h", "u","s", "e"]
-        guessed_letters = ["a", "b", "c", "d", "f", "g", "i", "j", "k", "l", "k"]
-        assert_equal(true, game_word.game_over?(correct_guesses, guessed_letters))
+        @correct_guesses = ["h", "u","s", "e"]
+        @guessed_letters = ["a", "b", "c", "d", "f", "g", "i", "j", "k", "l", "k"]
+        assert_equal(true, game_word.game_over?(@correct_guesses, @guessed_letters))
     end
 
 end
