@@ -54,11 +54,11 @@ class TestApp < Minitest::Test
         assert_equal(1, game_word.find_first_occurance_of_correct_letter_in_source_word(letter_guess))
     end
 
-    def test_correct_guess_letter_finds_first_occurance_of_o
-        game_word = Hangman.new("House")
-        letter_guess = "u"
-        assert_equal(2, game_word.find_first_occurance_of_correct_letter_in_source_word(letter_guess))
-    end
+    # def test_correct_guess_letter_finds_first_occurance_of_o
+    #     game_word = Hangman.new("House")
+    #     letter_guess = "u"
+    #     assert_equal(2, game_word.find_first_occurance_of_correct_letter_in_source_word(letter_guess))
+    # end
 
     def test_full_array_returns_winner
         game_word = Hangman.new("House")
