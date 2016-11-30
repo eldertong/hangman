@@ -32,4 +32,8 @@ class Hangman
     def blank_word_gets_filled_with_correct_guess(letter_guess)
         @blank_word = @blank_word.insert(1, letter_guess)
     end
+
+    def find_first_occurance_of_correct_letter_in_source_word(letter_guess)
+        @word.index(letter_guess)
+    end
 end

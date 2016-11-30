@@ -45,8 +45,19 @@ class TestApp < Minitest::Test
     def test_correct_guesses_in_solved_array_are_in_correct_order
         game_word = Hangman.new("House")
         letter_guess = "o"
-        @blank_word = ["", "", "", "", ""]
         assert_equal(["", "o", "", "", ""], game_word.blank_word_gets_filled_with_correct_guess(letter_guess))
+    end
+
+    def test_correct_guess_letter_finds_first_occurance_of_o
+        game_word = Hangman.new("House")
+        letter_guess = "o"
+        assert_equal(1, game_word.find_first_occurance_of_correct_letter_in_source_word(letter_guess))
+    end
+
+    def test_correct_guess_letter_finds_first_occurance_of_u
+        game_word = Hangman.new("House")
+        letter_guess = "u"
+        assert_equal(2, game_word.find_first_occurance_of_correct_letter_in_source_word(letter_guess))
     end
 
 end
