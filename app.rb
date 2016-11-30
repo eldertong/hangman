@@ -38,9 +38,15 @@ class Hangman
     end
 
     def no_empty_strings_left?(blank_words)
-        if blank_words.includes("")
+        if blank_words.include?("")
             false
         else
+            true
+        end
+    end
+
+    def game_over?(icorrect_guesses, iguessed_letters)
+        if iguessed_letters.length + 5 >= icorrect_guesses.length
             true
         end
     end

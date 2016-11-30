@@ -72,4 +72,11 @@ class TestApp < Minitest::Test
         assert_equal(false, game_word.no_empty_strings_left?(blank_words))
     end
 
+    def test_game_over_if_guessed_letters_is_greater_than_5_more_than_correct_letters
+        game_word = Hangman.new("House")
+        icorrect_guesses = ["h", "u","s", "e"]
+        iguessed_letters = ["a", "b", "c", "d", "f", "g", "i", "j", "k", "l", "k"]
+        assert_equal(true, game_word.game_over?(icorrect_guesses, iguessed_letters))
+    end
+
 end
