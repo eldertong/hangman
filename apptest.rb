@@ -42,5 +42,10 @@ class TestApp < Minitest::Test
         assert_equal(["o"], game_word.correct_guesses_array(letter_guess))
     end
     
+    def test_correct_guesses_in_solved_array_are_in_correct_order
+        game_word = Hangman.new("House")
+        letter_guess = "o"
+        assert_equal(["", "o", "", "", ""], game_word.blank_word_gets_filled_with_correct_guess(letter_guess))
+    end
 
 end

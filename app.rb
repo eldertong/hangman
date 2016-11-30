@@ -18,10 +18,6 @@ class Hangman
 
     def word_include?(letter_guess)
         @word.include? letter_guess
-        #     true
-        # else
-        #     false
-        # end
     end
 
     def guessed_letters_array(letter_guess)
@@ -32,4 +28,7 @@ class Hangman
         @correct_guesses << letter_guess
     end
 
+    def blank_word_gets_filled_with_correct_guess(letter_guess)
+        blank_word = blank_word[1].replace(letter_guess)
+    end
 end
