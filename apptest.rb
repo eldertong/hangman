@@ -60,4 +60,10 @@ class TestApp < Minitest::Test
         assert_equal(2, game_word.find_first_occurance_of_correct_letter_in_source_word(letter_guess))
     end
 
+    def test_full_array_returns_winner
+        game_word = Hangman.new("House")
+        blank_words = ["h", "o", "u","s", "e"]
+        assert_equal(true, game_word.no_empty_strings_left?(blank_words))
+    end
+
 end

@@ -36,4 +36,13 @@ class Hangman
     def find_first_occurance_of_correct_letter_in_source_word(letter_guess)
         @word.index(letter_guess)
     end
+
+    def no_empty_strings_left?(blank_words)
+        if blank_words.includes("")
+            false
+        else
+            true
+        end
+    end
+
 end
