@@ -13,10 +13,10 @@ class TestApp < Minitest::Test
         assert_equal(["h", "o", "u", "s", "e"], game_word.input_secret_word)
     end
 
-    def test_word_returns_empty_array_same_number_of_strings
-        game_word = Hangman.new("House")
-        assert_equal(["", "", "", "", ""], game_word.secret_word_displayed)
-    end
+    # def test_word_returns_empty_array_same_number_of_strings
+    #     game_word = Hangman.new("House")
+    #     assert_equal(["", "", "", "", ""], game_word.secret_word_displayed)
+    # end
 
     def test_o_is_a_correct_guess
         game_word = Hangman.new("House")
@@ -54,7 +54,7 @@ class TestApp < Minitest::Test
         assert_equal(1, game_word.find_first_occurance_of_correct_letter_in_source_word(letter_guess))
     end
 
-    def test_correct_guess_letter_finds_first_occurance_of_u
+    def test_correct_guess_letter_finds_first_occurance_of_o
         game_word = Hangman.new("House")
         letter_guess = "u"
         assert_equal(2, game_word.find_first_occurance_of_correct_letter_in_source_word(letter_guess))

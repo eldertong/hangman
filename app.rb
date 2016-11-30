@@ -1,21 +1,21 @@
 class Hangman
-    attr_accessor :word, :guessed_letters, :correct_guesses
+    attr_accessor :word, :guessed_letters, :correct_guesses, :blank_word
   
     def initialize(word)
         @word = word.downcase!
         @correct_guesses = []
         @guessed_letters = []
-        @blank_word = []
+        @blank_word = Array.new(@word.length, "")
     end
 
     def input_secret_word
         @split_word = @word.split("")
     end
 
-    def secret_word_displayed
-        number_of_blanks = @word.length
-        @blank_word = Array.new(number_of_blanks, "")
-    end
+    # def secret_word_displayed
+    #     number_of_blanks = @word.length
+    #     @blank_word = Array.new(number_of_blanks, "")
+    # end
 
     def word_include?(letter_guess)
         @word.include? letter_guess
@@ -30,7 +30,7 @@ class Hangman
     end
 
     def blank_word_gets_filled_with_correct_guess(letter_guess)
-        @blank_word = @blank_word.insert(1, letter_guess)
+        @blank_word[1] = letter_guess
     end
 
     def find_first_occurance_of_correct_letter_in_source_word(letter_guess)
