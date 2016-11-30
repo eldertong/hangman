@@ -30,13 +30,13 @@ class Hangman
         # "blank word is #{@blank_word}"
     end
 
-    def secret_word_correct_guesses_removed_from_array
+    def secret_word_correct_guesses_removed_from_array(letter_guess)
         @split_word.delete(letter_guess)
     end
 
-    # def find_first_occurance_of_correct_letter_in_source_word(letter_guess)
-    #     @position_in_secret_word = @word.index(letter_guess)
-    # end
+    def find_first_occurance_of_correct_letter_in_source_word(letter_guess)
+        @position_in_secret_word = @word.index(letter_guess)
+    end
 
     def no_empty_strings_left?(blank_word)
         if blank_word.include?("")
