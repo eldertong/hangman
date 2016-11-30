@@ -1,11 +1,12 @@
 class Hangman
-    attr_accessor :word, :guessed_letters, :correct_guesses, :blank_word, :position_in_secret_word
+    attr_accessor :word, :guessed_letters, :correct_guesses, :blank_word, :position_in_secret_word, :letter_guess
   
     def initialize(word)
         @word = word.downcase!
         @correct_guesses = []
         @guessed_letters = []
         @blank_word = Array.new(word.length, "")
+        @letter_guess = ""
         @position_in_secret_word = @word.index(letter_guess)
     end
 

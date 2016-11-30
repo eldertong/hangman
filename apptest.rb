@@ -20,44 +20,44 @@ class TestApp < Minitest::Test
 
     def test_o_is_a_correct_guess
         game_word = Hangman.new("House")
-        letter_guess = "o"
-        assert_equal(true, game_word.word_include?(letter_guess))
+        @letter_guess = "o"
+        assert_equal(true, game_word.word_include?(@letter_guess))
     end
 
     def test_r_is_a_false_guess
         game_word = Hangman.new("House")
-        letter_guess = "r"
-        assert_equal(false, game_word.word_include?(letter_guess))
+        @letter_guess = "r"
+        assert_equal(false, game_word.word_include?(@letter_guess))
     end
 
     def test_r_is_pushed_into_guessed_letters_array
         game_word = Hangman.new("House")
-        letter_guess = "r"
-        assert_equal(["r"], game_word.guessed_letters_array(letter_guess))
+        @letter_guess = "r"
+        assert_equal(["r"], game_word.guessed_letters_array(@letter_guess))
     end
 
     def test_correct_guesses_are_pushed_into_solved_array
         game_word = Hangman.new("House")
-        letter_guess = "o"
-        assert_equal(["o"], game_word.correct_guesses_array(letter_guess))
+        @letter_guess = "o"
+        assert_equal(["o"], game_word.correct_guesses_array(@letter_guess))
     end
     
     # def test_correct_guesses_in_solved_array_are_in_correct_order
     #     game_word = Hangman.new("House")
-    #     letter_guess = "o"
-    #     assert_equal(["", "o", "", "", ""], game_word.blank_word_gets_filled_with_correct_guess(letter_guess))
+    #     @letter_guess = "o"
+    #     assert_equal(["", "o", "", "", ""], game_word.blank_word_gets_filled_with_correct_guess(@letter_guess))
     # end
 
     def test_correct_guess_letter_finds_first_occurance_of_o
         game_word = Hangman.new("House")
-        letter_guess = "o"
-        assert_equal(1, game_word.find_first_occurance_of_correct_letter_in_source_word(letter_guess))
+        @letter_guess = "o"
+        assert_equal(1, game_word.find_first_occurance_of_correct_letter_in_source_word(@letter_guess))
     end
 
     # def test_correct_guess_letter_finds_first_occurance_of_o
     #     game_word = Hangman.new("House")
-    #     letter_guess = "u"
-    #     assert_equal(2, game_word.find_first_occurance_of_correct_letter_in_source_word(letter_guess))
+    #     @letter_guess = "u"
+    #     assert_equal(2, game_word.find_first_occurance_of_correct_letter_in_source_word(@letter_guess))
     # end
 
     def test_full_array_returns_winner
