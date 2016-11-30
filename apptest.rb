@@ -66,4 +66,10 @@ class TestApp < Minitest::Test
         assert_equal(true, game_word.no_empty_strings_left?(blank_words))
     end
 
+    def test_full_array_returns_winner
+        game_word = Hangman.new("House")
+        blank_words = ["h", "", "u","s", "e"]
+        assert_equal(false, game_word.no_empty_strings_left?(blank_words))
+    end
+
 end
