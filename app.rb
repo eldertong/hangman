@@ -11,13 +11,14 @@ get '/' do
 end
 
 post '/word' do
-    word = params[:word]
-    session[:play] = Hangman.new(word)
+    session[:word] = params[:word]
+    session[:blank_word] = Hangman.new(session[:word])
+    session[:guessed_letters] = params[:letter_guess]
     redirect '/play_game'
-    puts "word is #{@word}"
 end
 
 get '/play_game' do
-    erb :play_game
+    session[:blank_word] = session[:play].blank_word
+    erb :play_game, :locals => {:word => session[:word]}
 end
 
