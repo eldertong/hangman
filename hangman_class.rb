@@ -57,9 +57,7 @@ class Hangman
         play_game until no_empty_strings_left? || game_over?
     end
 
-def play_game #this calls all of the other function to run the game
-        input_secret_word
-        begin_game
+    def guess
         if word_include?
             find_first_occurance_of_correct_letter_in_source_word
             blank_word_gets_filled_with_correct_guess
@@ -69,6 +67,13 @@ def play_game #this calls all of the other function to run the game
         else
             guessed_letters_array
         end
+    end
+
+
+def play_game #this calls all of the other function to run the game
+        input_secret_word
+        begin_game
+        guess
 end    
 
 end
