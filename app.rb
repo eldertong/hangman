@@ -6,11 +6,14 @@ enable :sessions
 
 
 
-    get '/' do
-        erb :home
-    end
+get '/' do
+    erb :enter_word
+end
 
-    get '/enter_word'
-        erb :enter_word, :locals => { word => :word }
-        redirect '/play_game'
-    end
+post '/word' do
+    word = params[:word]
+    seesion[:play] = Hangman.new(word)
+
+  "Hello World"
+end
+
