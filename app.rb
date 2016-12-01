@@ -18,8 +18,6 @@ post '/word' do
 end
 
 get '/play_game' do
-    if game_over?
-        
     erb :play_game
 end
 
