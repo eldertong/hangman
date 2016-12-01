@@ -12,8 +12,14 @@ end
 
 post '/word' do
     word = params[:word]
-    seesion[:play] = Hangman.new(word)
+    session[:play] = Hangman.new(word)
+    redirect '/play_game'
+    puts "word is #{@word}"
+end
 
-  "Hello World"
+get '/play_game' do
+    if game_over?
+        
+    erb :play_game
 end
 
