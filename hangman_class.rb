@@ -57,15 +57,15 @@ class Hangman
         play_game until no_empty_strings_left? || game_over?
     end
 
-    def guess
-        if word_include?
-            find_first_occurance_of_correct_letter_in_source_word
-            blank_word_gets_filled_with_correct_guess
-            secret_word_correct_guesses_removed_from_array
-            guessed_letters_array
-            correct_guesses_array
+    def guess(letter_guess)
+        if word_include?(letter_guess)
+            find_first_occurance_of_correct_letter_in_source_word(letter_guess)
+            blank_word_gets_filled_with_correct_guess(letter_guess)
+            secret_word_correct_guesses_removed_from_array(letter_guess)
+            guessed_letters_array(letter_guess)
+            correct_guesses_array(letter_guess)
         else
-            guessed_letters_array
+            guessed_letters_array(letter_guess)
         end
     end
 

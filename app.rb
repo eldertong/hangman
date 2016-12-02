@@ -24,6 +24,6 @@ end
 
 post '/letter_guess' do
   letter_guess = params[:letter_guess]
-  puts "letter_guess is #{letter_guess}"
+  guess = session[:game].guess
 end
 
