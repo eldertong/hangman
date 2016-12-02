@@ -68,7 +68,7 @@ class TestApp < Minitest::Test
 
     def test_full_array_returns_winner
         game_word = Hangman.new("House")
-        @blank_word = ["h", "", "u","s", "e"]
+        @blank_word = ["h", "_", "u","s", "e"]
         assert_equal(false, game_word.no_empty_strings_left?(@blank_word))
     end
 
