@@ -11,14 +11,14 @@ get '/' do
 end
 
 post '/word' do
-    session[:word] = params[:word]
-    session[:blank_word] = Hangman.new(session[:word])
-    session[:guessed_letters] = params[:letter_guess]
+    word = params[:word] #because i am not doing anything with it going forward
+    session[:game] = Hangman.new(word) #this gives me access to all the methods and variable in hangman class
+    # guessed_letters = params[:letter_guess]
     redirect '/play_game'
 end
 
 get '/play_game' do
-    session[:blank_word] = session[:play].blank_word
-    erb :play_game, :locals => {:word => session[:word]}
+    erb :play_game, :locals => {:guessed_letters => session[:game].guessed_letters, :blank_word => session[:game].blank_word}
+    #the above gives you access to guessed_letters and blank_word, these point to the hangman class.rb and make them able to pass to the views
 end
 
