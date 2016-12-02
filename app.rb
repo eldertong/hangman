@@ -22,3 +22,8 @@ get '/play_game' do
     #the above gives you access to guessed_letters and blank_word, these point to the hangman class.rb and make them able to pass to the views
 end
 
+post '/letter_guess' do
+  letter_guess = params[:letter_guess]
+  puts "letter_guess is #{letter_guess}"
+end
+
