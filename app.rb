@@ -5,7 +5,6 @@ require_relative 'hangman_class.rb'
 enable :sessions
 
 
-
 get '/' do
     erb :enter_word
 end
@@ -24,6 +23,7 @@ end
 
 post '/letter_guess' do
   letter_guess = params[:letter_guess]
-  guess = session[:game].guess
+  session[:game].guess(letter_guess)
+  redirect '/play_game'
 end
 
