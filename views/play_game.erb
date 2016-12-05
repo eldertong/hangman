@@ -2,7 +2,7 @@
  Your secret word is <%= blank_word %>.
 <br>
 <br>
-Guessed Letters [<%= guessed_letters %>]<br><br>
+Guessed Letters <%= guessed_letters.to_s %><br><br>
 Choose a lower case letters or else!
 <br>
 <br>
@@ -10,3 +10,4 @@ Choose a lower case letters or else!
 	<input type="text" name="letter_guess" pattern="[a-z]" maxlength="1" autofocus="autofocus" required>
 	<input type="submit">
 </form>
+
