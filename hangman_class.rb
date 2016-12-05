@@ -50,14 +50,6 @@ class Hangman
         if word_include?(letter_guess)
             blank_word_gets_filled_with_correct_guess(letter_guess)
             secret_word_correct_guesses_removed_from_array(letter_guess)
-            if word_include?(letter_guess)
-                blank_word_gets_filled_with_correct_guess(letter_guess)
-                secret_word_correct_guesses_removed_from_array(letter_guess)
-                    if word_include?(letter_guess)
-                        blank_word_gets_filled_with_correct_guess(letter_guess)
-                        secret_word_correct_guesses_removed_from_array(letter_guess)
-                    end
-            end
         end
     end
 
