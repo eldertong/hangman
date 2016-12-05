@@ -27,23 +27,19 @@ class Hangman
     end
 
     def blank_word_gets_filled_with_correct_guess(letter_guess)
-        position_in_secret_word = @word.index(letter_guess)
-        @blank_word[position_in_secret_word] = letter_guess
-        # "blank word is #{@blank_word}"
+        i = 0
+        @word.length.times do
+           if @word[i] == letter_guess
+               @blank_word[i] = letter_guess
+               @split_word.delete_at(i)
+           end
+           i += 1
+        end
     end
 
     def secret_word_correct_guesses_removed_from_array(letter_guess)
         position_in_secret_word = @word.index(letter_guess)
         @split_word.delete_at(position_in_secret_word)
-    end
-
-    def combine_fill_and_delete_do(letter_guess)
-        @split_word.length.times do
-            if word_include?(letter_guess)
-                blank_word_gets_filled_with_correct_guess(letter_guess)
-                secret_word_correct_guesses_removed_from_array(letter_guess)
-            end
-        end
     end
 
     def combined_fill_and_delete(letter_guess)
@@ -77,14 +73,14 @@ class Hangman
 
     def word_included(letter_guess)
         blank_word_gets_filled_with_correct_guess(letter_guess)
-        secret_word_correct_guesses_removed_from_array(letter_guess)
+        # secret_word_correct_guesses_removed_from_array(letter_guess)
     end
 
     def guess(letter_guess)
         if @word.include? letter_guess
             input_secret_word
             # find_first_occurance_of_correct_letter_in_source_word(letter_guess)
-            combine_fill_and_delete_do(letter_guess)
+            word_included(letter_guess)
             guessed_letters_array(letter_guess)
             correct_guesses_array(letter_guess)
         
