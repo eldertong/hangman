@@ -15,6 +15,12 @@ class Hangman
         @split_word = @word.split("")
     end
 
+    def word_exclude?(letter_guess)
+        unless @split_word.include? letter_guess
+            @chances = @chances - 1
+        end
+    end
+
     def word_include?(letter_guess)
         @split_word.include? letter_guess
         # else

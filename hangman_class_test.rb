@@ -18,17 +18,17 @@ class TestApp < Minitest::Test
     #     assert_equal(["", "", "", "", ""], game_word.secret_word_displayed)
     # end
 
-    def test_o_is_a_correct_guess
-        game_word = Hangman.new("House")
-        @letter_guess = "o"
-        assert_equal(true, game_word.word_include?(@letter_guess))
-    end
+    # def test_o_is_a_correct_guess
+    #     game_word = Hangman.new("House")
+    #     @letter_guess = "o"
+    #     assert_equal(true, game_word.word_include?(@letter_guess))
+    # end
 
-    def test_r_is_a_false_guess
-        game_word = Hangman.new("House")
-        @letter_guess = "r"
-        assert_equal(false, game_word.word_include?(@letter_guess))
-    end
+    # def test_r_is_a_false_guess
+    #     game_word = Hangman.new("House")
+    #     @letter_guess = "r"
+    #     assert_equal(false, game_word.word_include?(@letter_guess))
+    # end
 
     def test_r_is_pushed_into_guessed_letters_array
         game_word = Hangman.new("House")
@@ -48,11 +48,11 @@ class TestApp < Minitest::Test
     #     assert_equal(["", "o", "", "", ""], game_word.blank_word_gets_filled_with_correct_guess(@letter_guess))
     # end
 
-    def test_correct_guess_letter_finds_first_occurance_of_o
-        game_word = Hangman.new("House")
-        @letter_guess = "o"
-        assert_equal(1, game_word.find_first_occurance_of_correct_letter_in_source_word(@letter_guess))
-    end
+    # def test_correct_guess_letter_finds_first_occurance_of_o
+    #     game_word = Hangman.new("House")
+    #     @letter_guess = "o"
+    #     assert_equal(1, game_word.find_first_occurance_of_correct_letter_in_source_word(@letter_guess))
+    # end
 
     # def test_correct_guess_letter_finds_first_occurance_of_o
     #     game_word = Hangman.new("House")
@@ -77,6 +77,12 @@ class TestApp < Minitest::Test
         @correct_guesses = ["h", "u","s", "e"]
         @guessed_letters = ["a", "b", "c", "d", "f", "g", "i", "j", "k", "l", "k"]
         assert_equal(true, game_word.game_over?(@correct_guesses, @guessed_letters))
+    end
+
+    def test_word_exclude(letter_guess)
+        game_word = Hangman.new("House")
+        letter_guess = "z"
+        assert_equal(6, game_word.word_exclude?(letter_guess))
     end
 
 end
