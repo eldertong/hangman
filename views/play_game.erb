@@ -11,7 +11,9 @@ Choose a lower case letters or else!
 	<input type="submit">
 </form>
 
-<% if session[:game].chances == 1 %>
+<% if session[:game].chances == 0 %>
+<img class= "loser" src= "/img/hangmanempty.jpg">
+<% elsif session[:game].chances == 1 %>
 <img class= "loser" src= "/img/hangmanempty.jpg">
 <% elsif session[:game].chances == 2 %>
 <img class= "loser" src= "/img/hangmanhead.jpg">
