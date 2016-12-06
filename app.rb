@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'rubygems'
+require 'csv'
 require_relative 'hangman_class.rb'
 
 enable :sessions
