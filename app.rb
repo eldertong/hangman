@@ -56,3 +56,9 @@ get '/winner' do
     erb :winner, :locals => {:guessed_letters => session[:game].guessed_letters, :word => session[:game].word, :player_2_name => session[:player_2_name]}
 end
 
+def write_to_csv(player_2_name, keyword)
+    CSV.open("file.csv", "a") do |csv|
+    csv << ["#{:player_2_name}" + "," + "#{keyword}"]
+end
+write_to_csv(session[:player_name],session[:game].word)
+end
