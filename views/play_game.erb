@@ -11,3 +11,17 @@ Choose a lower case letters or else!
 	<input type="submit">
 </form>
 
+<% if session[:game].chances == 1 %>
+<img class= "loser" src= "/img/hangmanempty.jpg">
+<% elsif session[:game].chances == 2 %>
+<img class= "loser" src= "/img/hangmanhead.jpg">
+<% elsif session[:game].chances == 3 %>
+<img class= "loser" src= "/img/hangmanbody.jpg">
+<% elsif session[:game].chances == 4 %>
+<img class= "loser" src= "/img/hangmanleftarm.jpg">
+<% elsif session[:game].chances == 5 %>
+<img class= "loser" src= "/img/hangmanbotharms.jpg">
+<% elsif session[:game].chances == 6 %>
+<img class= "loser" src= "/img/hangmanleftleg.jpg">
+<h1>LAST CHANCE, MAKE IT COUNT!!!</H1>
+<%end%>
