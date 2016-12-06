@@ -46,11 +46,12 @@ end
 
 get '/game_over' do
     word = session[:game].word
-    erb :game_over, :locals => {:guessed_letters => session[:game].guessed_letters, :word => session[:game].word}
+    # puts session[:player_2_name]
+    erb :game_over, :locals => {:guessed_letters => session[:game].guessed_letters, :word => session[:game].word, :player_2_name => session[:player_2_name]}
 end
 
 get '/winner' do
     word = session[:game].word
-    erb :winner, :locals => {:guessed_letters => session[:game].guessed_letters, :word => session[:game].word}
+    erb :winner, :locals => {:guessed_letters => session[:game].guessed_letters, :word => session[:game].word, :player_2_name => session[:player_2_name]}
 end
 
