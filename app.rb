@@ -13,6 +13,16 @@ post '/word' do
     word = params[:word] #because i am not doing anything with it going forward
     session[:game] = Hangman.new(word) #this gives me access to all the methods and variable in hangman class
     # guessed_letters = params[:letter_guess]
+    redirect '/player_2_name'
+end
+
+get '/player_2_name' do
+    erb :player_2_name
+end
+
+post '/player_2_name' do
+	session[:player_2_name] = params[:player_2]
+    erb :player_2_name
     redirect '/play_game'
 end
 

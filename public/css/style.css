@@ -10,9 +10,10 @@ li{font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif}
 img {display: block; margin: auto; width: 20%;}
 /*the above line ceters the images*/
 
-.loser img {
-    width: 50%;
-    height: auto;
+
+img.loser{
+   max-width:50%;
+   max-height:50%;
 }
 
 .footer {position: absolute; right: 0; bottom: 0; left: 0; padding: 1rem; background-color: whitesmoke; text-align: center;}
