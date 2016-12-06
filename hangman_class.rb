@@ -71,6 +71,10 @@ class Hangman
         end
     end
 
+    def already_guessed(letter_guess)
+        @blank_word.include? letter_guess
+    end
+
     def game_over?(correct_guesses, guessed_letters)
         if guessed_letters.length + 5 >= correct_guesses.length
             true
