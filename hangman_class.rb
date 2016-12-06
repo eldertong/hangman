@@ -7,7 +7,7 @@ class Hangman
         @guessed_letters = []
         @blank_word = Array.new(word.length, "_")
         @letter_guess = ""
-        @chances = 7
+        @chances = 0
         
     end
 
@@ -15,11 +15,11 @@ class Hangman
         @split_word = @word.split("")
     end
 
-    def word_exclude?(letter_guess)
-        unless @split_word.include? letter_guess
-            @chances = @chances - 1
-        end
-    end
+    # def word_exclude?(letter_guess)
+    #     unless @split_word.include? letter_guess
+    #         @chances = @chances - 1
+    #     end
+    # end
 
     def word_include?(letter_guess)
         @split_word.include? letter_guess
@@ -64,7 +64,7 @@ class Hangman
     # end
 
     def no_empty_strings_left?(blank_word)
-        if blank_word.include?("_")
+        if @blank_word.include?("_")
             false
         else
             true
@@ -75,6 +75,16 @@ class Hangman
         if guessed_letters.length + 5 >= correct_guesses.length
             true
         end
+    end
+
+    def too_many_guesses?
+        if chances >= 7
+            true
+        end
+    end
+
+    def counter
+        @chances = chances + 1
     end
 
     def begin_game
@@ -88,17 +98,18 @@ class Hangman
 
     def guess(letter_guess)
         # until @chances == 0
-        if @word.include? letter_guess
+        if @chances >= 7
+            too_many_guesses?
+        elsif @word.include? letter_guess
             input_secret_word
             # find_first_occurance_of_correct_letter_in_source_word(letter_guess)
             word_included(letter_guess)
             guessed_letters_array(letter_guess)
             correct_guesses_array(letter_guess)
-        
         else
             guessed_letters_array(letter_guess)
+            counter
         end
-        # end
     end
 
 

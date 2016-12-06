@@ -24,6 +24,23 @@ end
 post '/letter_guess' do
   letter_guess = params[:letter_guess]
   session[:game].guess(letter_guess)
-  redirect '/play_game'
+  puts session[:game].chances
+  if session[:game].no_empty_strings_left?(session[:blank_word])
+      redirect '/winner'
+  elsif session[:game].chances >= 7
+      redirect '/game_over'
+  else
+      redirect '/play_game'
+  end
+end
+
+get '/game_over' do
+    word = session[:game].word
+    erb :game_over, :locals => {:guessed_letters => session[:game].guessed_letters, :word => session[:game].word}
+end
+
+get '/winner' do
+    word = session[:game].word
+    erb :winner, :locals => {:guessed_letters => session[:game].guessed_letters, :word => session[:game].word}
 end
 
