@@ -8,7 +8,7 @@ class Hangman
         @blank_word = Array.new(word.length, "_")
         @letter_guess = ""
         @chances = 0
-        @guessed_letters_length = guessed_letters.length
+        @guessed_letters_length = 0
         
     end
 
@@ -31,7 +31,6 @@ class Hangman
 
     def guessed_letters_array(letter_guess)
         @guessed_letters << letter_guess
-        guessed_letters_length = @guessed_letters.length
     end
 
     def correct_guesses_array(letter_guess)
@@ -73,7 +72,7 @@ class Hangman
         end
     end
 
-    def already_guessed(letter_guess)
+    def already_guessed?(letter_guess)
         @blank_word.include? letter_guess
     end
 
@@ -91,6 +90,10 @@ class Hangman
 
     def counter
         @chances = chances + 1
+    end
+
+    def guessed_letter_counter
+        @guessed_letters_length = @guessed_letters_length + 1
     end
 
     def begin_game
@@ -112,9 +115,11 @@ class Hangman
             word_included(letter_guess)
             guessed_letters_array(letter_guess)
             correct_guesses_array(letter_guess)
+            guessed_letter_counter
         else
             guessed_letters_array(letter_guess)
             counter
+            guessed_letter_counter
         end
     end
 
