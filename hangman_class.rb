@@ -31,6 +31,7 @@ class Hangman
 
     def guessed_letters_array(letter_guess)
         @guessed_letters << letter_guess
+        guessed_letters_length = @guessed_letters.length
     end
 
     def correct_guesses_array(letter_guess)
@@ -123,9 +124,9 @@ class Hangman
         end
     end
 
-    def guessed_letters_length(guessed_letters)
-        guessed_letters_length = guessed_letters.length
-    end
+    # def guessed_letters_length(guessed_letters)
+    #     guessed_letters_length = guessed_letters.length
+    # end
 
 
 def play_game #this calls all of the other function to run the game

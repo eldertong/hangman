@@ -23,7 +23,7 @@ end
 
 post '/player_2_name' do
 	session[:player_2_name] = params[:player_2]
-	write_to_csv(session[:player_2_name],session[:game].word)
+	write_to_csv(session[:player_2_name],session[:game].word, session[:game].guessed_letters_length)
     erb :player_2_name
     redirect '/play_game'
 end
