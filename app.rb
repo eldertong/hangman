@@ -58,11 +58,12 @@ end
 
 get '/winner' do
     word = session[:game].word
+    guessed_letters_length = session[:game].guessed_letters_length
     erb :winner, :locals => {:guessed_letters => session[:game].guessed_letters, :word => session[:game].word, :player_2_name => session[:player_2_name]}
 end
 
-def write_to_csv(player_2_name, keyword)
+def write_to_csv(player_2_name, keyword, guessed_letters_length)
     CSV.open("file.csv", "a") do |row|
-    row << ["#{player_2_name}","#{keyword}"]
+    row << ["#{player_2_name}","#{keyword}","#{guessed_letters_length}"]
 end
 end
