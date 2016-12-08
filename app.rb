@@ -23,7 +23,7 @@ end
 
 post '/player_2_name' do
 	session[:player_2_name] = params[:player_2]
-	write_to_csv(session[:player_2_name],session[:game].word, session[:game].guessed_letters_length)
+	# write_to_csv(session[:player_2_name],session[:game].word, session[:game].guessed_letters_length)
     erb :player_2_name
     redirect '/play_game'
 end
@@ -54,12 +54,14 @@ get '/game_over' do
     word = session[:game].word
     guessed_letters_length = session[:game].guessed_letters_length
     # puts session[:player_2_name]
+    write_to_csv(session[:player_2_name],session[:game].word, session[:game].guessed_letters_length)
     erb :game_over, :locals => {:guessed_letters => session[:game].guessed_letters, :word => session[:game].word, :player_2_name => session[:player_2_name], :guessed_letters_length => session[:game].guessed_letters_length}
 end
 
 get '/winner' do
     word = session[:game].word
     guessed_letters_length = session[:game].guessed_letters_length
+    write_to_csv(session[:player_2_name],session[:game].word, session[:game].guessed_letters_length)
     erb :winner, :locals => {:guessed_letters => session[:game].guessed_letters, :word => session[:game].word, :player_2_name => session[:player_2_name], :guessed_letters_length => session[:game].guessed_letters_length}
 end
 
