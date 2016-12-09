@@ -123,11 +123,11 @@ class Hangman
         end
     end
 
-    def write_to_csv(player_2_name, keyword, guessed_letters_length)
-        CSV.open("file.csv", "a") do |row|
-                row << [@player_name, @player_word, @guessed_letters_length]
-        end
-    end
+    # def write_to_csv(player_2_name, keyword, guessed_letters_length)
+    #     CSV.open("file.csv", "a") do |row|
+    #             row << [@player_name, @player_word, @guessed_letters_length]
+    #     end
+    # end
 
     # def guessed_letters_length(guessed_letters)
     #     guessed_letters_length = guessed_letters.length
@@ -138,7 +138,7 @@ def play_game #this calls all of the other function to run the game
         input_secret_word
         begin_game
         guess
-        write_to_csv
+        # write_to_csv
 end    
 
 end
